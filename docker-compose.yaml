@@ -1,0 +1,25 @@
+version: '3.8'
+
+networks:
+  default:
+    name: cms_network
+    external: true
+
+volumes:
+  pgdata:
+
+services:
+  waw-server-tcp:
+    restart: always
+    build: .
+    image: "deviot442/waw-server-tcp:${BUILD_TAG}"
+    container_name: waw-server-tcp
+    volumes:
+      - ${OPENDDS_HOST_PATH}:/home/opendds
+    ports:
+      - "5100:5100"
+      - "5105:5105"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      TCP_SERVER_PORT: ${TCP_SERVER_PORT}
