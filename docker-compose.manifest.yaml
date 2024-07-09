@@ -9,12 +9,9 @@ volumes:
   pgdata:
 
 services:
-  waw-server-tcp:
+  server-tcp:
     restart: always
-    image: "deviot442/waw-server-tcp:${BUILD_TAG}"
-    container_name: waw-server-tcp
-    volumes:
-      - ${OPENDDS_HOST_PATH}:/home/opendds
+    container_name: server-tcp
     ports:
       - "5100:5100"
     extra_hosts:

@@ -4,17 +4,17 @@ project(server-tcp VERSION 0.1.0 LANGUAGES C CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 20)
 
 include(CTest)
 enable_testing()
 
 include_directories(
-    "/opt/vcpkg/installed/x64-linux/include"
+    "/home/vcpkg/installed/x64-linux/include"
 )
 
 link_directories(
-    "/opt/vcpkg/installed/x64-linux/lib"
+    "/home/vcpkg/installed/x64-linux/lib"
 )
 
 add_executable(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/src/app.cpp)

@@ -1634,6 +1634,22 @@
 			"value" : "[/opt/vcpkg/installed/x64-linux/share/boost/BoostConfig.cmake][cfound components: thread ][v1.84.0()]"
 		},
 		{
+			"name" : "GITCOMMAND",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a program."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/usr/bin/git"
+		},
+		{
 			"name" : "MAKECOMMAND",
 			"properties" : 
 			[

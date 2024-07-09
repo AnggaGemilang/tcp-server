@@ -22,10 +22,6 @@ RUN apt-get update -y && \
     gcc \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Copy OpenDDS
-RUN wget https://docs.len-iot.id/s/9jykng8dNBA6STM/download/OpenDDS-3.26.1.zip && \
-    unzip OpenDDS-3.26.1.zip && mv OpenDDS-3.26.1 opendds && mv opendds /home/
-
 # Install vcpkg packages
 RUN ./vcpkg/vcpkg install boost-asio
 
@@ -51,10 +47,9 @@ WORKDIR /home/project/build
 
 # Copy files from the build stage
 COPY --from=build /home/project/build /home/project/build
-COPY --from=build /home/project/rtps.ini /home/project/rtps.ini
 
 # Set exposed ports
 EXPOSE 5100
 
 # Run the app
-ENTRYPOINT ["./waw-server-tcp"]
+ENTRYPOINT ["./server-tcp"]

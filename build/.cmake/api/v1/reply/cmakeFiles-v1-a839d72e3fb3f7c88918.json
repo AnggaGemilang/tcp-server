@@ -385,11 +385,6 @@
 		{
 			"isCMake" : true,
 			"isExternal" : true,
-			"path" : "/usr/share/cmake-3.22/Modules/CheckIncludeFile.c.in"
-		},
-		{
-			"isCMake" : true,
-			"isExternal" : true,
 			"path" : "/usr/share/cmake-3.22/Modules/FindPackageHandleStandardArgs.cmake"
 		},
 		{
