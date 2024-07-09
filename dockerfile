@@ -22,8 +22,16 @@ RUN apt-get update -y && \
     gcc \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Install vcpkg package manager
+WORKDIR /home
+RUN git clone https://github.com/microsoft/vcpkg && \
+    # VCPKG commit that install protobuf 3.21.12
+    cd vcpkg && git checkout 8150939b69720adc475461978e07c2d2bf5fb76e && \
+    cd .. && vcpkg/bootstrap-vcpkg.sh
+
 # Install vcpkg packages
-RUN ./vcpkg/vcpkg install boost-asio
+RUN ./vcpkg/vcpkg install boost-asio && \
+    ./vcpkg/vcpkg install boost-thread
 
 # Copy files from local directory to container
 COPY ./src /home/project/src
